@@ -8,7 +8,7 @@ var Pagination = require('./../index');
 // Create Hapi.js server
 var server = new Hapi.Server();
 
-var mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/hapi_mongoose_pagination'
+var mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/hapi_mongoose_pagination';
 
 // Connect to mongodb
 mongoose.connect(mongodb_uri);
@@ -16,7 +16,7 @@ mongoose.connect(mongodb_uri);
 // When successfully connected
 mongoose.connection.on('connected', function () {
 	console.log('Mongoose default connection open to ' + mongodb_uri);
-	mongoose.connection.db.dropCollection('tests', function(err, result) {
+	mongoose.connection.db.dropCollection('tests', function () {
 		console.log('database collection cleaned.');
 	});
 });
@@ -93,15 +93,15 @@ server.route({
 			 "page": 1,
 			 "hasMore": true,
 			 "links": {
-			 "first": "/courses?page=1&currentPage=1&pageSize=10",
-			 "next": "/courses?page=2&currentPage=1&pageSize=10&after=<encoded>",
-			 "last": "/courses?page=2&currentPage=1&pageSize=10&last=true"
+			 "first": "/cbReply?page=1&currentPage=1&pageSize=10",
+			 "next": "/cbReply?page=2&currentPage=1&pageSize=10&after=<objectid>",
+			 "last": "/cbReply?page=2&currentPage=1&pageSize=10&last=true"
 			 },
 			 "pageCount": 10,
 			 "total": 14,
-			 "before": "<encoded>",
-			 "after": "<encoded>",
-			 "data": [{<courses>}]
+			 "before": "<objectid>",
+			 "after": "<objectid>",
+			 "data": [{<tests>}]
 			 }
 			 */
 

@@ -22,9 +22,6 @@ Now you can start paginating!
 
 ### Examples _(found it at examples/server.js)_
 ```javascript
-/**
- * Created by jorgecuesta on 17/11/15.
- */
 var mongoose = require('mongoose');
 var Hapi = require('hapi');
 var Pagination = require('hapi-mongoose-opt-paginate');
@@ -117,15 +114,15 @@ server.route({
 			 "page": 1,
 			 "hasMore": true,
 			 "links": {
-			 "first": "/courses?page=1&currentPage=1&pageSize=10",
-			 "next": "/courses?page=2&currentPage=1&pageSize=10&after=<encoded>",
-			 "last": "/courses?page=2&currentPage=1&pageSize=10&last=true"
+			 "first": "/cbReply?page=1&currentPage=1&pageSize=10",
+			 "next": "/cbReply?page=2&currentPage=1&pageSize=10&after=<objectid>",
+			 "last": "/cbReply?page=2&currentPage=1&pageSize=10&last=true"
 			 },
 			 "pageCount": 10,
 			 "total": 14,
-			 "before": "<encoded>",
-			 "after": "<encoded>",
-			 "data": [{<courses>}]
+			 "before": "<objectid>",
+			 "after": "<objectid>",
+			 "data": [{<tests>}]
 			 }
 			 */
 
@@ -152,6 +149,10 @@ If sorting (with more than by _id since it's always included) and a matching com
 - Complete Documentation (ASAP)
 
 ### Release History
+#### 0.1.2
+- Example and Readme update on sample of results object.
+#### 0.1.1
+- Package tags update to include hapi.js
 #### 0.1.0
 - Full integration with hapi.js request/reply style.
 - Created [example](examples/server.js)

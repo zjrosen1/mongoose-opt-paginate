@@ -1,6 +1,6 @@
 {
   "name": "hapi-mongoose-opt-paginate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Optimized pagination using indexes (no cursor.skip) with fallback. Used with Mongoose + Hapi.js base on tesfaldet/mongoose-opt-paginate.",
   "main": "index.js",
   "dependencies": {
