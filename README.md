@@ -149,14 +149,17 @@ If sorting (with more than by _id since it's always included) and a matching com
 - Complete Documentation (ASAP)
 
 ### Release History
+
 #### 0.1.2
-- Example and Readme update on sample of results object.
+* Example and Readme update on sample of results object.
+
 #### 0.1.1
-- Package tags update to include hapi.js
+* Package tags update to include hapi.js
+
 #### 0.1.0
-- Full integration with hapi.js request/reply style.
-- Created [example](examples/server.js)
-- TODO: Update unit test.
+* Full integration with hapi.js request/reply style.
+* Created [example](examples/server.js)
+* TODO: Update unit test.
 
 ### License
 MIT
