@@ -1,33 +1,9 @@
-# Mongoose Optimized Paginate (MOP)
-Optimized pagination using indexes (no cursor.skip) with fallback. Used with Mongoose + Hapi.js.
-> Fork of [MOP](https://github.com/tesfaldet/mongoose-opt-paginate)
-
-### Getting Started
-```sh
-$ npm install hapi-mongoose-opt-paginate
-```
-
-The MOP plugin returns an object containing a property for accessing the api (paginate function) and a property for accessing the mongoose plugin.
-
-The first step is to include the plugin in your mongoose instance e.g.
-
-```javascript
-var mongoose = require('mongoose'),
-	pagination = require('hapi-mongoose-opt-paginate');
-
-mongoose.plugin(pagination.plugin);
-```
-
-Now you can start paginating!
-
-### Examples _(found it at examples/server.js)_
-```javascript
 /**
  * Created by jorgecuesta on 17/11/15.
  */
 var mongoose = require('mongoose');
 var Hapi = require('hapi');
-var Pagination = require('hapi-mongoose-opt-paginate');
+var Pagination = require('./../index');
 
 // Create Hapi.js server
 var server = new Hapi.Server();
@@ -138,24 +114,3 @@ server.route({
 server.start(function () {
 	console.log('Server running at:', server.info.port);
 });
-```
-#### Things to Note
-
-If sorting, make sure a compound index (collection-level) exists for the sort field(s) and _id field in proper order
-
-e.g. So if you're sorting by name, date, and _id (_id is always there by default and follows the same order as the first/primary sort key: name, in this case) and you want optimized pagination, the compound indexes {name: 1, date: 1, _id: 1} (for optimization when primary sort key in ascending) and {name: -1, date: 1, _id: -1} (for optimization when primary sort key in descending) should exist on the collection-level (not schema-level). Opposite compound indexes don't need to be created i.e. {name: -1, date: -1, _id: -1} and {name: 1, date: -1, _id: 1} wouldn't need to be added if the above indexes already exist.
-
-If sorting (with more than by _id since it's always included) and a matching compound index is not found, pagination will fall back to a non-optimized state. If it's just by _id, no worries, there's a default index for _id that always exists.
-
-### Todo's
-- Write unit and integration tests (Current test be part of forked repo.)
-- Complete Documentation (ASAP)
-
-### Release History
-#### 0.1.0
-- Full integration with hapi.js request/reply style.
-- Created [example](examples/server.js)
-- TODO: Update unit test.
-
-### License
-MIT
