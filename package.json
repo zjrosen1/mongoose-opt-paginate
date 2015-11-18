@@ -46,7 +46,8 @@
     "mongodb",
     "optimized",
     "range",
-    "index"
+    "index",
+    "hapi"
   ],
   "author": "Jorge Cuesta <jckpo2@gmail.com>",
   "license": "MIT",
